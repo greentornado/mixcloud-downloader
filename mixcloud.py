@@ -16,7 +16,7 @@ def download(mixurl):
     print("Trying to find manifest.mpd...")
 
     soup = BeautifulSoup(requests.get(mixurl).text, "html.parser")
-    title = soup.title.string.replace("/","").replace("  ","_").replace(" ","_").replace("|","") + ".mp4"
+    title = soup.title.string.replace("/","").replace("  "," ").replace("|","") + ".mp4"
     text = str(soup)
 
     trackid = re.search(r'((.\/){4}([^\/]*))\.mp3', text).group(1)
